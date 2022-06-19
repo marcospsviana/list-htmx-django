@@ -1,0 +1,8 @@
+    {% for radio in radios %}
+<tr id="trRadio-{{ radio.id }}">
+    <td>{{ radio.id }}</td>
+    <td>{{ radio.name }}</td>
+    <td>{{ radio.dial }}</td>
+    <td>{{ radio.cities }}</td>
+</tr>
+{% endfor %}

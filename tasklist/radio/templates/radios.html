@@ -1,0 +1,34 @@
+{% include 'base.html' %}
+
+{% block content %} 
+<h3>Listas as rádios</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Dial
+            </th>
+            <th>Cidade
+                
+                <select name="city" id="city" hx-target="#radio-list" hx-get="{% url 'radio_list' %}" hx-trigger="change">
+                    
+                    <option value="">------</option>
+                    {% for city in cities %}
+                    <option value="{{ city.pk }}" {% if city == city.name %}selected{% endif %}>{{ city.name }}</option>
+                    {% endfor %}
+                </select>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="radio-list">
+        {%include 'radios_list.html' %}
+    </tbody>
+</table>
+{% endblock content %}
